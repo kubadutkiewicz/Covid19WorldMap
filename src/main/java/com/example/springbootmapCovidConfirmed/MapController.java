@@ -15,11 +15,13 @@ public class MapController {
         this.covidConfirmed = covidConfirmed;
     }
 
+    //TODO !!!
     @GetMapping
     public String getDate(){
         return "ChooseDate";
     }
 
+    //working link
     @GetMapping("/map")
     public String getMap(Model model) throws IOException {
 
