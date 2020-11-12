@@ -5,7 +5,7 @@ public class Point {
 
     private double lat;
     private double lon;
-    private String dateCovid = "11/11/20";
+    private String dateCovid = "11/12/20";
 
 
     public Point(double lat, double lon, String dateCovid) {
