@@ -38,8 +38,8 @@ public class Point {
         return dateCovid;
     }
 
-    public void setDateCovid(String dataCovid) {
-        this.dateCovid = dataCovid;
+    public void setDateCovid(String dateCovid) {
+        this.dateCovid = dateCovid;
     }
 
 }
