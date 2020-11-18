@@ -8,10 +8,10 @@
 		<version>2.3.4.RELEASE</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.example</groupId>
-	<artifactId>spring-boot-map-init</artifactId>
+	<groupId>jak.dut</groupId>
+	<artifactId>map-with-spring-boot</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>spring-boot-map-init</name>
+	<name>map-with-spring-boot</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
