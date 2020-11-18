@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class SpringBootMapInitApplicationTests {
+class SpringBootMapCovidConfirmedTests {
 
 	@Test
 	void contextLoads() {
