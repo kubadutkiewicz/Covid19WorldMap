@@ -32,7 +32,7 @@
 
     points.forEach(value => {
         L.marker([value.lat, value.lng]).addTo(map)
-            .bindPopup('Liczba potwierdzonych zakażeń: ' + value.text);
+            .bindPopup('Covid19 confirmed cases: ' + value.text);
     })
 
 

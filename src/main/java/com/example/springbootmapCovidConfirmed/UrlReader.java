@@ -16,5 +16,4 @@ public class UrlReader {
         StringReader stringReader = new StringReader(values);
         return stringReader;
     }
-
 }

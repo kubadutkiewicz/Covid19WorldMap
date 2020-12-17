@@ -9,7 +9,6 @@ public class Point {
     private double lng;
     private String text;
 
-
     public Point(double lat, double lng, String text) {
         this.lat = lat;
         this.lng = lng;
