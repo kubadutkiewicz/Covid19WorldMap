@@ -9,5 +9,5 @@ public class CovidConfirmedMapApp {
 	public static void main(String[] args) {
 		SpringApplication.run(CovidConfirmedMapApp.class, args);
 	}
-
 }
+

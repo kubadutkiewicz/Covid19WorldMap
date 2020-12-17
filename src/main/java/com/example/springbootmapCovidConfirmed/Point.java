@@ -1,17 +1,19 @@
 package com.example.springbootmapCovidConfirmed;
 
+import org.springframework.stereotype.Service;
 
+@Service
 public class Point {
 
     private double lat;
-    private double lon;
-    private String dateCovid = "11/12/20";
+    private double lng;
+    private String text;
 
 
-    public Point(double lat, double lon, String dateCovid) {
+    public Point(double lat, double lng, String text) {
         this.lat = lat;
-        this.lon = lon;
-        this.dateCovid = dateCovid;
+        this.lng = lng;
+        this.text = text;
     }
 
     public Point() {
@@ -26,20 +28,19 @@ public class Point {
         this.lat = lat;
     }
 
-    public double getLon() {
-        return lon;
+    public double getLng() {
+        return lng;
     }
 
-    public void setLon(double lon) {
-        this.lon = lon;
+    public void setLng(double lng) {
+        this.lng = lng;
     }
 
-    public String getDateCovid() {
-        return dateCovid;
+    public String getText() {
+        return text;
     }
 
-    public void setDateCovid(String dateCovid) {
-        this.dateCovid = dateCovid;
+    public void setText(String text) {
+        this.text = text;
     }
-
 }
