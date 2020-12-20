@@ -1,23 +1,22 @@
-package com.example.springbootmapCovidConfirmed;
+package com.example.springbootmapCovidConfirmed.Points;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class Point {
+public abstract class Point {
 
     private double lat;
     private double lng;
-    private String text;
+    private String covidData;
 
-    public Point(double lat, double lng, String text) {
+    public Point(double lat, double lng, String covidData) {
         this.lat = lat;
         this.lng = lng;
-        this.text = text;
+        this.covidData = covidData;
     }
 
     public Point() {
     }
-
 
     public double getLat() {
         return lat;
@@ -35,11 +34,11 @@ public class Point {
         this.lng = lng;
     }
 
-    public String getText() {
-        return text;
+    public String getCovidData() {
+        return covidData;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setCovidData(String covidData) {
+        this.covidData = covidData;
     }
 }

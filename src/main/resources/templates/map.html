@@ -22,7 +22,33 @@
 <script th:inline="javascript">
 
     var points = [[${points}]];
+    var pointsDeaths = [[${pointsDeaths}]];
+    var pointsRecovery = [[${pointsRecovery}]];
     var popup = L.popup();
+
+    var covid19 = L.icon({
+    iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-orange.png',
+
+    iconSize:     [20, 55], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+    var pointsDeathsIcon = L.icon({
+    iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-red.png',
+
+    iconSize:     [20, 55], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
+
+    var pointsRecoveryIcon = L.icon({
+    iconUrl: 'https://leafletjs.com/examples/custom-icons/leaf-green.png',
+
+    iconSize:     [20, 55], // size of the icon
+    iconAnchor:   [22, 94], // point of the icon which will correspond to marker's location
+    popupAnchor:  [-3, -76] // point from which the popup should open relative to the iconAnchor
+});
 
     var map = L.map('mapid').setView([50.304979, 18.848923], 10);
 
@@ -31,8 +57,18 @@
     }).addTo(map);
 
     points.forEach(value => {
-        L.marker([value.lat, value.lng]).addTo(map)
-            .bindPopup('Covid19 confirmed cases: ' + value.text);
+        L.marker([value.lat, value.lng - 0.5], {icon: covid19}).addTo(map)
+            .bindPopup('Confirmed cases: ' + value.covidData);
+    })
+
+    pointsDeaths.forEach(value => {
+        L.marker([value.lat, value.lng], {icon: pointsDeathsIcon}).addTo(map)
+            .bindPopup('Deaths cases: ' + value.covidData);
+    })
+
+        pointsRecovery.forEach(value => {
+        L.marker([value.lat, value.lng + 0.5], {icon: pointsRecoveryIcon}).addTo(map)
+            .bindPopup('Recovery cases: ' + value.covidData);
     })
 
 

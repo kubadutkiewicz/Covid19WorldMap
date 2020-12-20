@@ -1,5 +1,7 @@
-package com.example.springbootmapCovidConfirmed;
+package com.example.springbootmapCovidConfirmed.CovidData;
 
+import com.example.springbootmapCovidConfirmed.Points.PointConfirmed;
+import com.example.springbootmapCovidConfirmed.UrlReader.UrlReader;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -19,9 +21,9 @@ public class CovidConfirmed {
         this.urlReader = urlReader;
     }
 
-    public List<Point> getCovidDate() throws IOException {
+    public List<PointConfirmed> getCovidDate() throws IOException {
 
-        List<Point> points = new ArrayList<>();
+        List<PointConfirmed> points = new ArrayList<>();
 
         CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlReader.getValues());
 
@@ -29,13 +31,13 @@ public class CovidConfirmed {
             double lat = NumberUtils.toDouble(strings.get("Lat"));
             double lng = NumberUtils.toDouble(strings.get("Long"));
             try {
-                String text = strings.get("12/14/20");
-                points.add(new Point(lat, lng, text));
+                String text = strings.get("12/19/20");
+                points.add(new PointConfirmed(lat, lng, text));
             } catch (IllegalArgumentException ex) {
                 System.out.println(ex);
                 break;
             }
         }
-            return points;
-        }
+        return points;
+    }
 }
