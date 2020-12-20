@@ -1,5 +1,6 @@
 package com.example.springbootmapCovidConfirmed.CovidData;
 
+import com.example.springbootmapCovidConfirmed.Date;
 import com.example.springbootmapCovidConfirmed.Points.PointConfirmed;
 import com.example.springbootmapCovidConfirmed.UrlReader.UrlRecoveryReader;
 import org.apache.commons.csv.CSVFormat;
@@ -16,9 +17,11 @@ import java.util.List;
 public class CovidRecovery {
 
     private UrlRecoveryReader urlRecoveryReader;
+    private Date date;
 
-    public CovidRecovery(UrlRecoveryReader urlRecoveryReader) {
+    public CovidRecovery(UrlRecoveryReader urlRecoveryReader, Date date) {
         this.urlRecoveryReader = urlRecoveryReader;
+        this.date = date;
     }
 
     public List<PointConfirmed> getCovidRecoveryData() throws IOException {
@@ -31,7 +34,7 @@ public class CovidRecovery {
             double lat = NumberUtils.toDouble(strings.get("Lat"));
             double lng = NumberUtils.toDouble(strings.get("Long"));
             try {
-                String covidRecovery = strings.get("12/19/20");
+                String covidRecovery = strings.get(date.getDate());
                 points.add(new PointConfirmed(lat, lng, covidRecovery));
             } catch (IllegalArgumentException ex) {
                 System.out.println(ex);
