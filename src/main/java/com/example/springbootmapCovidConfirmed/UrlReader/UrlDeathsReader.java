@@ -6,13 +6,14 @@ import org.springframework.web.client.RestTemplate;
 import java.io.StringReader;
 
 @Service
-public class UrlDeathsReader {
+public class UrlDeathsReader implements UrlReader {
 
-    private static final String urlCovidDeaths = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
+    private static final String urlDeathsReader = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
 
-    public StringReader getValuesCovidDeaths() {
+    @Override
+    public StringReader getValues() {
         RestTemplate restTemplate = new RestTemplate();
-        String values = restTemplate.getForObject(urlCovidDeaths,String.class);
+        String values = restTemplate.getForObject(urlDeathsReader,String.class);
         StringReader stringReader = new StringReader(values);
         return stringReader;
     }

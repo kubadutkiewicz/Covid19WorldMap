@@ -28,7 +28,7 @@ public class CovidDeaths {
 
         List<PointDeath> points = new ArrayList<>();
 
-        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlDeathsReader.getValuesCovidDeaths());
+        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlDeathsReader.getValues());
 
         for (CSVRecord strings : parse) {
             double lat = NumberUtils.toDouble(strings.get("Lat"));
