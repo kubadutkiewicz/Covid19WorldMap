@@ -2,7 +2,7 @@ package com.example.springbootmapCovidConfirmed.CovidData;
 
 import com.example.springbootmapCovidConfirmed.Date;
 import com.example.springbootmapCovidConfirmed.Points.PointConfirmed;
-import com.example.springbootmapCovidConfirmed.UrlReader.UrlRecoveryReader;
+import com.example.springbootmapCovidConfirmed.UrlData.GetValuesFromUrlRecoveryData;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -16,11 +16,11 @@ import java.util.List;
 @Service
 public class CovidRecovery {
 
-    private UrlRecoveryReader urlRecoveryReader;
+    private GetValuesFromUrlRecoveryData urlRecoveryData;
     private Date date;
 
-    public CovidRecovery(UrlRecoveryReader urlRecoveryReader, Date date) {
-        this.urlRecoveryReader = urlRecoveryReader;
+    public CovidRecovery(GetValuesFromUrlRecoveryData urlRecoveryData, Date date) {
+        this.urlRecoveryData = urlRecoveryData;
         this.date = date;
     }
 
@@ -28,7 +28,7 @@ public class CovidRecovery {
 
         List<PointConfirmed> points = new ArrayList<>();
 
-        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlRecoveryReader.getValuesCovidRecovery());
+        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlRecoveryData.getValuesFromUrlFiles());
 
         for (CSVRecord strings : parse) {
             double lat = NumberUtils.toDouble(strings.get("Lat"));

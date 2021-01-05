@@ -2,7 +2,7 @@ package com.example.springbootmapCovidConfirmed.CovidData;
 
 import com.example.springbootmapCovidConfirmed.Date;
 import com.example.springbootmapCovidConfirmed.Points.PointDeath;
-import com.example.springbootmapCovidConfirmed.UrlReader.UrlDeathsReader;
+import com.example.springbootmapCovidConfirmed.UrlData.GetValuesFromUrlDeathsData;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -16,11 +16,11 @@ import java.util.List;
 @Service
 public class CovidDeaths {
 
-    private UrlDeathsReader urlDeathsReader;
+    private GetValuesFromUrlDeathsData urlDeathsData;
     private Date date;
 
-    public CovidDeaths(UrlDeathsReader urlDeathsReader, Date date) {
-        this.urlDeathsReader = urlDeathsReader;
+    public CovidDeaths(GetValuesFromUrlDeathsData urlDeathsData, Date date) {
+        this.urlDeathsData = urlDeathsData;
         this.date = date;
     }
 
@@ -28,7 +28,7 @@ public class CovidDeaths {
 
         List<PointDeath> points = new ArrayList<>();
 
-        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlDeathsReader.getValues());
+        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlDeathsData.getValuesFromUrlFiles());
 
         for (CSVRecord strings : parse) {
             double lat = NumberUtils.toDouble(strings.get("Lat"));
@@ -43,4 +43,5 @@ public class CovidDeaths {
         }
         return points;
     }
+
 }
