@@ -5,13 +5,13 @@ import org.springframework.stereotype.Service;
 import java.io.StringReader;
 
 @Service
-public class GetValuesFromUrlDeathsData extends GetValuesFromUrlModel{
+public class DeathsData extends GetValuesFromUrl {
 
     private static final String urlCovidDeaths = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv";
 
     private RestTemplateUrlReader restTemplateUrlReader;
 
-    public GetValuesFromUrlDeathsData(RestTemplateUrlReader restTemplateUrlReader) {
+    public DeathsData(RestTemplateUrlReader restTemplateUrlReader) {
         this.restTemplateUrlReader = restTemplateUrlReader;
     }
 

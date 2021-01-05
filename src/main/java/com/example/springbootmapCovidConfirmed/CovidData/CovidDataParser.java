@@ -2,7 +2,7 @@ package com.example.springbootmapCovidConfirmed.CovidData;
 
 import com.example.springbootmapCovidConfirmed.Date;
 import com.example.springbootmapCovidConfirmed.Point;
-import com.example.springbootmapCovidConfirmed.UrlData.GetValuesFromUrlModel;
+import com.example.springbootmapCovidConfirmed.UrlData.GetValuesFromUrl;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
@@ -23,10 +23,10 @@ public class CovidDataParser {
     }
 
 
-    public List<Point> getCovidDataParser(GetValuesFromUrlModel getValuesFromUrlModel) throws IOException {
+    public List<Point> getCovidDataParser(GetValuesFromUrl getValuesFromUrl) throws IOException {
 
         List<Point> points = new ArrayList<>();
-        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(getValuesFromUrlModel.getValuesFromUrlFiles());
+        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(getValuesFromUrl.getValuesFromUrlFiles());
 
         for (CSVRecord strings : parse) {
             double lat = NumberUtils.toDouble(strings.get("Lat"));
