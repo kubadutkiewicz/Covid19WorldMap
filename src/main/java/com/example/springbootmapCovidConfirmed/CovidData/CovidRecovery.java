@@ -1,46 +1,25 @@
 package com.example.springbootmapCovidConfirmed.CovidData;
 
-import com.example.springbootmapCovidConfirmed.Date;
-import com.example.springbootmapCovidConfirmed.Points.PointConfirmed;
+import com.example.springbootmapCovidConfirmed.Point;
 import com.example.springbootmapCovidConfirmed.UrlData.GetValuesFromUrlRecoveryData;
-import org.apache.commons.csv.CSVFormat;
-import org.apache.commons.csv.CSVParser;
-import org.apache.commons.csv.CSVRecord;
-import org.apache.commons.lang3.math.NumberUtils;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class CovidRecovery {
 
-    private GetValuesFromUrlRecoveryData urlRecoveryData;
-    private Date date;
+    private GetValuesFromUrlRecoveryData getValuesFromUrlRecoveryData;
+    private CovidDataParser covidDataParser;
 
-    public CovidRecovery(GetValuesFromUrlRecoveryData urlRecoveryData, Date date) {
-        this.urlRecoveryData = urlRecoveryData;
-        this.date = date;
+    public CovidRecovery(GetValuesFromUrlRecoveryData getValuesFromUrlRecoveryData, CovidDataParser covidDataParser) {
+        this.getValuesFromUrlRecoveryData = getValuesFromUrlRecoveryData;
+        this.covidDataParser = covidDataParser;
     }
 
-    public List<PointConfirmed> getCovidRecoveryData() throws IOException {
-
-        List<PointConfirmed> points = new ArrayList<>();
-
-        CSVParser parse = CSVFormat.DEFAULT.withFirstRecordAsHeader().parse(urlRecoveryData.getValuesFromUrlFiles());
-
-        for (CSVRecord strings : parse) {
-            double lat = NumberUtils.toDouble(strings.get("Lat"));
-            double lng = NumberUtils.toDouble(strings.get("Long"));
-            try {
-                String covidRecovery = strings.get(date.getDate());
-                points.add(new PointConfirmed(lat, lng, covidRecovery));
-            } catch (IllegalArgumentException ex) {
-                System.out.println(ex);
-                break;
-            }
-        }
+    public List<Point> getCovidRecoveryData() throws IOException {
+        List<Point> points = covidDataParser.getCovidDataParser(getValuesFromUrlRecoveryData);
         return points;
     }
 }

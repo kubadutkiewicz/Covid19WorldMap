@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.io.StringReader;
 
 @Service
-public class GetValuesFromUrlRecoveryData implements GetValuesFromUrl {
+public class GetValuesFromUrlRecoveryData extends GetValuesFromUrlModel{
 
     private static final String urlCovidRecovery = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv";
 

@@ -15,7 +15,7 @@ public class MapController {
 
     @GetMapping(value = "/map")
     public String getMap(Model model, Model modelDeaths, Model modelRecovery) throws IOException {
-        model.addAttribute("points", covidConfirmed.getCovidDate());
+        model.addAttribute("points", covidConfirmed.getCovidConfirmedDate());
         modelDeaths.addAttribute("pointsDeaths", covidDeaths.getCovidDeathsData());
         modelRecovery.addAttribute("pointsRecovery", covidRecovery.getCovidRecoveryData());
         return "map";

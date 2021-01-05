@@ -1,9 +1,9 @@
-package com.example.springbootmapCovidConfirmed.Points;
+package com.example.springbootmapCovidConfirmed;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public abstract class Point {
+public class Point {
 
     private double lat;
     private double lng;
@@ -17,6 +17,7 @@ public abstract class Point {
 
     public Point() {
     }
+
 
     public double getLat() {
         return lat;
