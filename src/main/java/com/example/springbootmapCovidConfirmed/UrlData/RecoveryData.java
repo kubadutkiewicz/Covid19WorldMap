@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.io.StringReader;
 
 @Service
-public class RecoveryData extends GetValuesFromUrl {
+public class RecoveryData extends ValuesFromUrl {
 
     private static final String urlCovidRecovery = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv";
 
@@ -15,6 +15,7 @@ public class RecoveryData extends GetValuesFromUrl {
         this.restTemplateUrlReader = restTemplateUrlReader;
     }
 
+    @Override
     public StringReader getValuesFromUrlFiles() {
         String values = restTemplateUrlReader.readUrl(urlCovidRecovery);
         StringReader stringReader = new StringReader(values);

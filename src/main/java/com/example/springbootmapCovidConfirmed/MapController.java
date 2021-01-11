@@ -12,16 +12,9 @@ import java.io.IOException;
 @Controller
 public class MapController {
 
-
-    @GetMapping(value = "/map")
-    public String getMap(Model model, Model modelDeaths, Model modelRecovery) throws IOException {
-        model.addAttribute("points", covidConfirmed.getCovidConfirmedDate());
-        modelDeaths.addAttribute("pointsDeaths", covidDeaths.getCovidDeathsData());
-        modelRecovery.addAttribute("pointsRecovery", covidRecovery.getCovidRecoveryData());
-        return "map";
-    }
-
-
+    private CovidConfirmed covidConfirmed;
+    private CovidDeaths covidDeaths;
+    private CovidRecovery covidRecovery;
 
     public MapController(CovidConfirmed covidConfirmed, CovidDeaths covidDeaths, CovidRecovery covidRecovery) {
         this.covidConfirmed = covidConfirmed;
@@ -29,8 +22,12 @@ public class MapController {
         this.covidRecovery = covidRecovery;
     }
 
-    private CovidConfirmed covidConfirmed;
-    private CovidDeaths covidDeaths;
-    private CovidRecovery covidRecovery;
+    @GetMapping(value = "/map")
+    public String getMap(Model model, Model modelDeaths, Model modelRecovery) throws IOException {
+        model.addAttribute("points", covidConfirmed.getCovidConfirmedData());
+        modelDeaths.addAttribute("pointsDeaths", covidDeaths.getCovidDeathsData());
+        modelRecovery.addAttribute("pointsRecovery", covidRecovery.getCovidRecoveryData());
+        return "map";
+    }
 
 }

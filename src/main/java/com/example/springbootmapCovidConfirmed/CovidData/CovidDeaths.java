@@ -19,7 +19,6 @@ public class CovidDeaths {
     }
 
     public List<Point> getCovidDeathsData() throws IOException {
-
         List<Point> points = covidDataParser.getCovidDataParser(deathsData);
         return points;
     }

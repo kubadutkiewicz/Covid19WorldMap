@@ -13,12 +13,12 @@ public class CovidConfirmed {
     private ConfirmedData confirmedData;
     private CovidDataParser covidDataParser;
 
-    public CovidConfirmed(ConfirmedData confirmedData, CovidDataParser covidDataParser) {
+    private CovidConfirmed(ConfirmedData confirmedData, CovidDataParser covidDataParser) {
         this.confirmedData = confirmedData;
         this.covidDataParser = covidDataParser;
     }
 
-    public List<Point> getCovidConfirmedDate() throws IOException {
+    public List<Point> getCovidConfirmedData() throws IOException {
         List<Point> points = covidDataParser.getCovidDataParser(confirmedData);
         return points;
     }

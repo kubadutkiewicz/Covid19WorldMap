@@ -13,5 +13,4 @@ public class RestTemplateUrlReader {
         return values;
     }
 
-
 }

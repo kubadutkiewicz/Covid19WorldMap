@@ -5,9 +5,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class Point {
 
-    private double lat;
-    private double lng;
-    private String covidData;
+    public double lat;
+    public double lng;
+    public String covidData;
 
     public Point(double lat, double lng, String covidData) {
         this.lat = lat;
@@ -18,28 +18,27 @@ public class Point {
     public Point() {
     }
 
-
-    public double getLat() {
+    private double getLat() {
         return lat;
     }
 
-    public void setLat(double lat) {
+    private void setLat(double lat) {
         this.lat = lat;
     }
 
-    public double getLng() {
+    private double getLng() {
         return lng;
     }
 
-    public void setLng(double lng) {
+    private void setLng(double lng) {
         this.lng = lng;
     }
 
-    public String getCovidData() {
+    private String getCovidData() {
         return covidData;
     }
 
-    public void setCovidData(String covidData) {
+    private void setCovidData(String covidData) {
         this.covidData = covidData;
     }
 }
