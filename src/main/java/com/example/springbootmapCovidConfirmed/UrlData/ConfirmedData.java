@@ -5,7 +5,7 @@ import org.springframework.stereotype.Service;
 import java.io.StringReader;
 
 @Service
-public class ConfirmedData extends ValuesFromUrl {
+public class ConfirmedData implements ValuesFromUrl {
 
     private static final String urlCovidConfirmed = "https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv";
 

@@ -2,11 +2,9 @@ package com.example.springbootmapCovidConfirmed.UrlData;
 
 import java.io.StringReader;
 
-public abstract class ValuesFromUrl {
+public interface ValuesFromUrl {
 
-    private static final String url = null;
+    static final String url = null;
 
-    public StringReader getValuesFromUrlFiles() {
-        return null;
-    }
+    public StringReader getValuesFromUrlFiles();
 }
